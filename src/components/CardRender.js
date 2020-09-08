@@ -1,11 +1,9 @@
 import React from 'react';
 
-function CardRender() {
+function CardRender(props) {
 
     return(
-        <div>
-
-        </div>
+        <img src={props.card.imgURL} alt="card image"/>
     )
 }
 

@@ -2,6 +2,7 @@ const getDeck = () => {
     const values = ["A", "2", "3", "4", "5", "6", "7", "8", "9", "10", "J", "Q", "K"];
     const suits = ["Diamonds", "Clubs", "Hearts", "Spades"];
     const deck = [];
+
     const getImgURL = (value, suit) => {
         const imageURL = "https://deckofcardsapi.com/static/img/";
         const valueSuit = value + suit.charAt(0);
@@ -14,10 +15,11 @@ const getDeck = () => {
         for(let x = 0; x < values.length; x++)
             {
                 let imgURL = getImgURL(values[x], suits[i])
-                let card = {value: values[x], suit: suits[i], image: imgURL};
+                let card = {value: values[x], suit: suits[i], imgURL: imgURL};
                 deck.push(card);
             }
         }
+    deck.sort(() => Math.random() - 0.5);
     return deck;
 }
 

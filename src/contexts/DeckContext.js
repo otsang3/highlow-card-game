@@ -8,15 +8,17 @@ function DeckContextProvider(props) {
     const initialState = {
         deck: deck,
         discardPile: [],
-        currentCard: null,
-        nextCard: null,
+        currentCard: deck[0],
+        nextCard: deck[1],
         userScore: 0
     }
 
     const [state, setState] = useState(initialState)
 
     return(
-        <DeckContext.Provider>
+        <DeckContext.Provider value={{
+            state: state
+        }}>
             {props.children}
         </DeckContext.Provider>
     )
