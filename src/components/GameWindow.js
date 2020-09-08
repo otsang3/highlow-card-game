@@ -9,7 +9,10 @@ function GameWindow() {
     const { state } = deckContext;
 
     return(
-        <CardRender card={state.currentCard}/>
+        <div>
+            <CardRender card={state.currentCard}/>
+        </div>
+        
     )
 }
 
