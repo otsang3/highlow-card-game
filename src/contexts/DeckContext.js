@@ -3,11 +3,17 @@ import {deck} from '../apis/Deck';
 
 export const DeckContext = createContext();
 
-console.log(deck);
-
 function DeckContextProvider(props) {
 
-    const [state, setState] = useState(deck)
+    const initialState = {
+        deck: deck,
+        discardPile: [],
+        currentCard: null,
+        nextCard: null,
+        userScore: 0
+    }
+
+    const [state, setState] = useState(initialState)
 
     return(
         <DeckContext.Provider>
