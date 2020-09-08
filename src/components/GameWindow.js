@@ -11,6 +11,8 @@ function GameWindow() {
     return(
         <div>
             <CardRender card={state.currentCard}/>
+            <button>HIGHER</button>
+            <button>LOWER</button>
         </div>
         
     )

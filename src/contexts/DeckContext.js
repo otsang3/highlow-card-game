@@ -6,14 +6,19 @@ export const DeckContext = createContext();
 function DeckContextProvider(props) {
 
     const initialState = {
+        currentCard: deck[0],
         deck: deck,
         discardPile: [],
-        currentCard: deck[0],
+        gameOver: false,
         nextCard: deck[1],
         userScore: 0
     }
 
     const [state, setState] = useState(initialState)
+
+    const playGame = (string) => {
+        
+    }
 
     return(
         <DeckContext.Provider value={{
