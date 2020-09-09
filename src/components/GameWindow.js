@@ -11,22 +11,31 @@ function GameWindow() {
 
     const renderGame = () => {
         return(
-            <div>
-                <p>Current score: {state.userScore}</p>
-                <CardRender card={state.currentCard}/>
-                <button onClick={() => playGame("HIGHER")}>HIGHER</button>
-                <button onClick={() => playGame("LOWER")}>LOWER</button>
+            <div className="game-container">
+                <div className="game-col">
+                    <h2 style={{textAlign: "center"}}>Current score: {state.userScore}</h2>
+                    <CardRender card={state.currentCard}/>
+                </div>
+                <div className="game-col">
+                    <button onClick={() => playGame("HIGHER")}>HIGHER</button>
+                    <button onClick={() => playGame("LOWER")}>LOWER</button>
+                </div>
+                
             </div>  
         )
     }
 
     const renderResult = () => {
         return(
-            <div>
-                <p>Unlucky!</p>
-                <CardRender card={state.currentCard}/>
-                <p>Your score: {state.userScore}</p>
-                <button onClick={() => resetGame()}>Play Again</button>
+            <div className="game-container">
+                <div className="game-col">
+                    <h2 style={{textAlign: "center"}}>Unlucky!</h2>
+                    <CardRender card={state.currentCard}/>
+                    <h3 style={{textAlign: "center"}}>Your score: {state.userScore}</h3>
+                    <button onClick={() => resetGame()}>Play Again</button>
+                </div>
+                
+                
             </div>
         )
     }

@@ -4,9 +4,9 @@ import CardRender from './CardRender';
 function DiscardPile(props) {
 
     const renderDiscards = () => {
-        return props.cards.map(card => {
+        return props.cards.map((card, index) => {
             return(
-                <CardRender card={card}/>
+                <CardRender card={card} key={index}/>
             )
         })
     }
