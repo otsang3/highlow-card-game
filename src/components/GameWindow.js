@@ -7,7 +7,7 @@ function GameWindow() {
 
     const deckContext = useContext(DeckContext);
 
-    const { state, playGame } = deckContext;
+    const { state, playGame, resetGame } = deckContext;
 
     const renderGame = () => {
         return(
@@ -26,6 +26,7 @@ function GameWindow() {
                 <p>Unlucky!</p>
                 <CardRender card={state.currentCard}/>
                 <p>Your score: {state.userScore}</p>
+                <button onClick={() => resetGame()}>Play Again</button>
             </div>
         )
     }

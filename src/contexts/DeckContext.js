@@ -65,11 +65,22 @@ function DeckContextProvider(props) {
         }
     }
 
+    const resetGame = () => {
+        deck.sort(() => Math.random() - 0.5)
+        setState({
+            deck: deck,
+            ...initialState,
+            currentCard: deck[0],
+            nextCard: deck[1]
+        })
+    }
+
     return(
         <DeckContext.Provider value={{
             addPoint: addPoint,
             gameOver: gameOver,
             playGame: playGame,
+            resetGame: resetGame,
             state: state  
         }}>
             {props.children}
