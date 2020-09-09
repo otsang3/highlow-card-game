@@ -28,14 +28,13 @@ function DeckContextProvider(props) {
     }
 
     const discardCard = () => {
-        const discard = deck.slice(0, 1)
         const deckSize = deck.length;
         setState(prevState => {
             return {
                 ...prevState,
                 currentCard: prevState.deck[1],
                 deck: prevState.deck.slice(1, deckSize),
-                discardPile: [discard],
+                discardPile: [prevState.currentCard, ...prevState.discardPile],
                 nextCard: prevState.deck[2]
             }
         })
@@ -61,6 +60,7 @@ function DeckContextProvider(props) {
             addPoint();
             discardCard();
         } else {
+            discardCard();
             gameOver();
         }
     }
