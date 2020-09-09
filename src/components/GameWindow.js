@@ -13,14 +13,16 @@ function GameWindow() {
         return(
             <div className="game-container">
                 <div className="game-col">
-                    <h2 style={{textAlign: "center"}}>Current score: {state.userScore}</h2>
-                    <CardRender card={state.currentCard}/>
+                    <h2>Current score: {state.userScore}</h2>
+                    <div className="center-container">
+                        <CardRender card={state.currentCard}/>
+                    </div>
+                    
                 </div>
                 <div className="game-col">
-                    <button onClick={() => playGame("HIGHER")}>HIGHER</button>
+                    <button style={{marginTop: "1em"}} onClick={() => playGame("HIGHER")}>HIGHER</button>
                     <button onClick={() => playGame("LOWER")}>LOWER</button>
                 </div>
-                
             </div>  
         )
     }
@@ -29,10 +31,12 @@ function GameWindow() {
         return(
             <div className="game-container">
                 <div className="game-col">
-                    <h2 style={{textAlign: "center"}}>Unlucky!</h2>
+                    <h2>Unlucky!</h2>
                     <CardRender card={state.currentCard}/>
-                    <h3 style={{textAlign: "center"}}>Your score: {state.userScore}</h3>
-                    <button onClick={() => resetGame()}>Play Again</button>
+                    <h3>Your Score: {state.userScore}</h3>
+                    <div className="center-container">
+                        <button onClick={() => resetGame()}>Play Again</button>
+                    </div>
                 </div>
                 
                 
@@ -43,7 +47,10 @@ function GameWindow() {
     return(
         <div>
             {state.gameOver ? renderResult() : renderGame()}
-            <DiscardPile cards={state.discardPile}/>
+            <div className="discard-col">
+                <DiscardPile cards={state.discardPile}/>
+            </div>
+            
         </div>
     )
 }
