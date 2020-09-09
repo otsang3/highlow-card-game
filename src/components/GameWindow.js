@@ -20,7 +20,7 @@ function GameWindow() {
                     
                 </div>
                 <div className="game-col">
-                    <button style={{marginTop: "1em"}} onClick={() => playGame("HIGHER")}>HIGHER</button>
+                    <button style={{marginTop: "3em"}} onClick={() => playGame("HIGHER")}>HIGHER</button>
                     <button onClick={() => playGame("LOWER")}>LOWER</button>
                 </div>
             </div>  
