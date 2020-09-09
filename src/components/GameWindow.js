@@ -6,12 +6,12 @@ function GameWindow() {
 
     const deckContext = useContext(DeckContext);
 
-    const { state } = deckContext;
+    const { state, playGame } = deckContext;
 
     return(
         <div>
             <CardRender card={state.currentCard}/>
-            <button>HIGHER</button>
+            <button onClick={() => playGame("HIGHER")}>HIGHER</button>
             <button>LOWER</button>
         </div>
         

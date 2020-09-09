@@ -4,6 +4,9 @@ const getDeck = () => {
     const deck = [];
 
     const getImgURL = (rank, suit) => {
+        if (rank === "10") {
+            rank = "0"
+        }
         const imageURL = "https://deckofcardsapi.com/static/img/";
         const rankSuit = rank + suit.charAt(0);
         return imageURL + rankSuit + ".png"

@@ -20,14 +20,25 @@ function DeckContextProvider(props) {
         setState(prevState => {
             return {
                 ...prevState,
+                currentCard: prevState.deck[0],
+                nextCard: deck[1],
                 userScore: prevState.userScore += 1
             }
         })
     }
 
     const discardCard = () => {
-        const discard = deck.slice(0,1)
-        state.discardPile.unshift(discard)
+        const discard = deck.slice(0, 1)
+        const deckSize = deck.length;
+        setState(prevState => {
+            return {
+                ...prevState,
+                currentCard: prevState.deck[1],
+                deck: prevState.deck.slice(1, deckSize),
+                discardPile: [discard],
+                nextCard: prevState.deck[2]
+            }
+        })
     }
 
     const gameOver = () => {
@@ -41,10 +52,13 @@ function DeckContextProvider(props) {
 
     const playGame = (string) => {
         if (state.currentCard.value === state.nextCard.value) {
+            addPoint();
             discardCard();
-        } else if (state.currentCard.value > state.nextCard.value && string === "HIGHER") {
+        } else if (state.currentCard.value > state.nextCard.value && string === "LOWER") {
+            addPoint();
             discardCard();
-        } else if (state.currentCard.value < state.nextCard.value && string === "LOWER") {
+        } else if (state.currentCard.value < state.nextCard.value && string === "HIGHER") {
+            addPoint();
             discardCard();
         } else {
             gameOver();
