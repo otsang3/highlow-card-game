@@ -1,4 +1,6 @@
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
+DEMO App: [jshighlow.herokuapp.com](jshighlow.herokuapp.com)
+
+![demo app screenshot](./src/images/screenshot.png)
 
 ## Available Scripts
 
