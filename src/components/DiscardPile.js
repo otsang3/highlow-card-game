@@ -12,7 +12,7 @@ function DiscardPile(props) {
     }
 
     return(
-        <div>
+        <div style={{paddingLeft: "0.4em", paddingTop: "0.25em"}}>
             {renderDiscards()}
         </div>
     )

@@ -15,7 +15,7 @@ const getDeck = () => {
     const getValue = (rank) => {
         switch(rank) {
             case "A":
-                return 1;
+                return 14;
             case "J":
                 return 11;
             case "Q":
