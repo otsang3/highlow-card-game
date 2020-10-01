@@ -40,6 +40,7 @@ img {
 }
 
 .discard-col {
+  border: 1px solid red;
   background-color: rgba(0, 0, 0, 0.3);
   border-radius: 10px;
   margin: 0em 1em;
@@ -48,10 +49,13 @@ img {
 }
 
 .game-col {
+  border: 1px solid black;
   margin: 0em auto;
+  text-align: center;
 }
 
 .game-container {
+  border: 1px solid red;
   display: flex;
   flex-direction: column;
   align-items: flex-start;

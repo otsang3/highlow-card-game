@@ -27,7 +27,7 @@ function GameWindow() {
         )
     }
 
-    const renderResult = () => {
+    const renderLoss = () => {
         return(
             <div className="game-container">
                 <div className="game-col">
@@ -38,19 +38,42 @@ function GameWindow() {
                         <button onClick={() => resetGame()}>Play Again</button>
                     </div>
                 </div>
-                
-                
             </div>
+        )
+    }
+
+    const renderWin = () => {
+        return(
+                <div className="game-col">
+                    <h2>Congratulations! You have won!</h2>
+                    <CardRender card={state.currentCard}/>
+                    <h3>Your Score: {state.userScore}</h3>
+                    <div className="center-container">
+                        <button onClick={() => resetGame()}>Play Again</button>
+                    </div>
+                </div>
+        )
+    }
+
+    if (state.deck.length === 0) {
+        return(
+            <div>
+                <div className="game-container">
+                    {renderWin()}
+                </div>
+                <div className="discard-col">
+                    <DiscardPile cards={state.discardPile}/>
+                </div>
+            </div> 
         )
     }
 
     return(
         <div>
-            {state.gameOver ? renderResult() : renderGame()}
+            {state.gameOver ? renderLoss() : renderGame()}
             <div className="discard-col">
                 <DiscardPile cards={state.discardPile}/>
             </div>
-            
         </div>
     )
 }
